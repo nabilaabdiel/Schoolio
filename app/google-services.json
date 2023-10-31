@@ -1,0 +1,184 @@
+{
+  "project_info": {
+    "project_number": "1044374806085",
+    "project_id": "kelasindustri-crocodic",
+    "storage_bucket": "kelasindustri-crocodic.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1044374806085:android:5707c4e82d3662d7d7cd2c",
+        "android_client_info": {
+          "package_name": "com.abdiel.classroom"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1044374806085-q63u9cu3s05gv20olf2l1al7irts6134.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBsqzU7zZY1On6liA7zKNXoqJZTZOqMXpk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1044374806085-q63u9cu3s05gv20olf2l1al7irts6134.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1044374806085:android:bff2666db9a1d2b7d7cd2c",
+        "android_client_info": {
+          "package_name": "com.abdiel.destinationcatalogue"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1044374806085-q63u9cu3s05gv20olf2l1al7irts6134.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBsqzU7zZY1On6liA7zKNXoqJZTZOqMXpk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1044374806085-q63u9cu3s05gv20olf2l1al7irts6134.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1044374806085:android:25798dd81eed172ed7cd2c",
+        "android_client_info": {
+          "package_name": "com.abdiel.friends"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1044374806085-q63u9cu3s05gv20olf2l1al7irts6134.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBsqzU7zZY1On6liA7zKNXoqJZTZOqMXpk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1044374806085-q63u9cu3s05gv20olf2l1al7irts6134.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1044374806085:android:2a6d88b2a40b633dd7cd2c",
+        "android_client_info": {
+          "package_name": "com.abdiel.miraclebooks"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1044374806085-q63u9cu3s05gv20olf2l1al7irts6134.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBsqzU7zZY1On6liA7zKNXoqJZTZOqMXpk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1044374806085-q63u9cu3s05gv20olf2l1al7irts6134.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1044374806085:android:0465a0feff206ab5d7cd2c",
+        "android_client_info": {
+          "package_name": "com.abdiel.mynote"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1044374806085-q63u9cu3s05gv20olf2l1al7irts6134.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBsqzU7zZY1On6liA7zKNXoqJZTZOqMXpk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1044374806085-q63u9cu3s05gv20olf2l1al7irts6134.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1044374806085:android:fabe5ca677326d10d7cd2c",
+        "android_client_info": {
+          "package_name": "com.abdiel.schoolio"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1044374806085-q63u9cu3s05gv20olf2l1al7irts6134.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBsqzU7zZY1On6liA7zKNXoqJZTZOqMXpk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1044374806085-q63u9cu3s05gv20olf2l1al7irts6134.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
