@@ -8,5 +8,11 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="premier">#37363E</color>
+    //custom colour
+    <color name="transparent">#00FFFFFF</color>
+
+    //Light
+    <color name="primer_first">#DBCDFF</color>
+    <color name="primer_second">#8677FF</color>
+    <color name="primer_third">#5931BD</color>
 </resources>

@@ -14,4 +14,8 @@ object Const {
         const val PREF_TOKEN = "pref_token"
         const val DEVICE_TOKEN = "token"
     }
+
+    object TIMEOUT {
+        const val NINETY_LONG = 90L
+    }
 }
