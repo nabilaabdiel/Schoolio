@@ -3,4 +3,6 @@
     <string name="schoolio">Schoolio</string>
     <string name="password">Password</string>
     <string name="msg_token_fmt" formatted="true"> %s Token Confirmed</string>
+    <string name="label_must_fill">Required</string>
+    <string name="search">Search</string>
 </resources>

@@ -10,7 +10,7 @@ interface ApiService {
     @FormUrlEncoded
     @POST("api/auth/login")
     suspend fun login(
-        @Field("phone") phone: String?,
+        @Field("email_or_phone") email_or_phone: String?,
         @Field("password") password: String?
     ): String
 
@@ -18,10 +18,10 @@ interface ApiService {
     @FormUrlEncoded
     @POST("api/auth/register")
     suspend fun register(
-        @Field("username") username: String?,
+        @Field("name") name: String?,
         @Field("email") email: String?,
         @Field("phone") phone: String?,
         @Field("password") password: String?,
-        @Field("confirm_password") confirm_password: String?
+        @Field("password_confirmation") password_confirmation: String?
     ): String
 }

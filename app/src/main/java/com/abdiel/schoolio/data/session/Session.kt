@@ -1,6 +1,7 @@
 package com.abdiel.schoolio.data.session
 
 import android.content.Context
+import com.abdiel.schoolio.data.constant.Const
 import com.abdiel.schoolio.data.user.User
 import com.crocodic.core.data.CoreSession
 import com.crocodic.core.extension.toJson
@@ -24,10 +25,10 @@ class Session(context: Context, private val gson: Gson) : CoreSession(context) {
 
     fun clearUser() {
         setValue(PREF_USER, "")
-//        setValue(Const.USER.USER_AUTH, "")
-//        setValue(Const.USER.PASSWORD, "")
-//        setValue(Const.USER.PROFILE, "")
-//        setValue(Const.TOKEN.PREF_TOKEN, "")
+        setValue(Const.USER.USER_AUTH, "")
+        setValue(Const.USER.PASSWORD, "")
+        setValue(Const.USER.PROFILE, "")
+        setValue(Const.TOKEN.PREF_TOKEN, "")
     }
 
     companion object {

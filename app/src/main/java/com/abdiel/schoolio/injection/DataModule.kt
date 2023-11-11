@@ -71,7 +71,7 @@ class DataModule {
     @Provides
     fun provideApiService(okHttpClient: OkHttpClient): ApiService {
         return Retrofit.Builder()
-            .baseUrl(com.abdiel.schoolio.BuildConfig.BUILD_TYPE)
+            .baseUrl(com.abdiel.schoolio.BuildConfig.BASE_URL)
             .addConverterFactory(ScalarsConverterFactory.create())
             .client(okHttpClient)
             .build().create(ApiService::class.java)
