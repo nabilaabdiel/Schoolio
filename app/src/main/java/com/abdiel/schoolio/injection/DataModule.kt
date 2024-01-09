@@ -19,19 +19,23 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.scalars.ScalarsConverterFactory
 import java.util.concurrent.TimeUnit
+import javax.inject.Singleton
 import javax.net.ssl.SSLContext
 
 @InstallIn(SingletonComponent::class)
 @Module
 class DataModule {
 
+    @Singleton
     @Provides
     fun provideSession(@ApplicationContext context: Context, gson: Gson) = Session(context, gson)
 
+    @Singleton
     @Provides
     fun provideGson() =
         GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES).create()
 
+    @Singleton
     @Provides
     fun providesOkHttpClient(session: Session): OkHttpClient {
 

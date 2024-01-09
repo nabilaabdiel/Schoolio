@@ -2,7 +2,6 @@ package com.abdiel.schoolio.helper
 
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
-import com.abdiel.schoolio.R
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.crocodic.core.helper.StringHelper
@@ -28,19 +27,19 @@ class ViewBindingHelper {
         }
 
         @JvmStatic
-        @BindingAdapter(value = ["destinationImg"], requireAll = false)
-        fun destinationImg(view: ImageView, destinationImg: String?) {
+        @BindingAdapter(value = ["thumbnail"], requireAll = true)
+        fun thumbnail(view: ImageView, thumbnail: String?) {
 
-            view.setImageDrawable(null)
+            view.post {
+                view.setImageDrawable(null)
 
-            destinationImg?.let {
-                Glide
-                    .with(view.context)
-                    .load(destinationImg)
-                    .apply(RequestOptions.centerCropTransform())
-//                    .error(R.drawable.error_placeholder)
-                    .into(view)
-
+                thumbnail?.let {
+                    Glide
+                        .with(view.context)
+                        .load(StringHelper.validateEmpty(thumbnail))
+                        .apply(RequestOptions.centerCropTransform())
+                        .into(view)
+                }
             }
         }
     }

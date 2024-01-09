@@ -3,6 +3,9 @@
 
     <data>
 
+        <variable
+            name="data"
+            type="com.abdiel.schoolio.data.mapel.Assignment"/>
 
         <import type="android.view.View" />
     </data>
@@ -32,7 +35,7 @@
                     android:layout_width="52dp"
                     android:layout_height="52dp"
                     android:layout_centerVertical="true"
-                    android:src="@drawable/profile_icon"
+                    android:src="@drawable/ic_assignment"
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="12dp"/>
 
@@ -56,6 +59,7 @@
                         android:minLines="1"
                         android:textColor="@color/primer_third"
                         android:textSize="16sp"
+                        android:text='@{data.title}'
                         tools:text="Linear dua variabel"/>
 
                     <TextView
@@ -70,6 +74,7 @@
                         android:minLines="1"
                         android:textColor="@color/primer_third"
                         android:textSize="12sp"
+                        android:text='@{data.dueDate}'
                         tools:text="07-11-2023"/>
 
                 </LinearLayout>

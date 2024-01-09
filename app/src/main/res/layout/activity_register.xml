@@ -18,9 +18,9 @@
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="450dp"
-                android:layout_marginBottom="-10dp"
+                android:layout_height="wrap_content"
                 android:src="@drawable/illustration"
+                android:adjustViewBounds="true"
                 android:layout_gravity="bottom"/>
 
             <RelativeLayout

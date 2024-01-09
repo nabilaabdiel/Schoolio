@@ -23,16 +23,18 @@ import kotlinx.coroutines.launch
 @AndroidEntryPoint
 class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>(R.layout.activity_login) {
 
+    private var device_token : String? =  null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // FirebaseApp.initializeApp(this@LoginActivity)
 
         generateFcmToken {
-            if (it){
-                binding.root.snacked("ada login")
-            } else {
-                binding.root.snacked("tidak ada device token")
-            }
+//            if (it){
+//                binding.root.snacked("ada login")
+//            } else {
+//                binding.root.snacked("tidak ada device token")
+//            }
         }
 
         binding.btnRegister.setOnClickListener {
@@ -49,7 +51,9 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>(R.layou
             val emailOrPhone = binding.etEmailOrPhone.textOf()
             val password = binding.etPassword.textOf()
 
-            viewModel.login(emailOrPhone, password)
+            device_token?.let { it1 -> Log.d("cek token", it1) }
+
+            device_token?.let { it1 -> viewModel.login(emailOrPhone, password, it1) }
         }
 
         lifecycleScope.launch {
@@ -86,8 +90,8 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>(R.layou
             // Log and toast
             val msg = getString(R.string.msg_token_fmt, token) //todo:untuk menegecek aja
             Log.d(ContentValues.TAG, msg)
-            tos(token)
             session.setValue(Const.TOKEN.DEVICE_TOKEN, token)
+            device_token = token
             result(true)
         })
     }

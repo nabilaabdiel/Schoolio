@@ -1,25 +1,26 @@
-package com.abdiel.schoolio.data.user
+package com.abdiel.schoolio.data.mapel
 
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
-data class User(
+@Parcelize
+data class Admin(
     @SerializedName("created_at")
     val createdAt: String?,
-    @SerializedName("device_token")
-    val deviceToken: String?,
     @SerializedName("email")
     val email: String?,
-    @SerializedName("email_verified_at")
-    val emailVerifiedAt: Any?,
     @SerializedName("id")
-    val id: String?,
+    val id: Int?,
     @SerializedName("name")
     val name: String?,
+    @SerializedName("password")
+    val password: String?,
     @SerializedName("phone")
     val phone: String?,
     @SerializedName("photo")
     val photo: String?,
     @SerializedName("updated_at")
     val updatedAt: String?
-)
+): Parcelable

@@ -3,6 +3,9 @@
 
     <data>
 
+        <variable
+            name="data"
+            type="com.abdiel.schoolio.data.mapel.Mapel" />
 
         <import type="android.view.View" />
     </data>
@@ -26,7 +29,13 @@
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
-                android:background="@color/primer_first">
+                android:background="@color/primer_third">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:adjustViewBounds="true"
+                    thumbnail='@{data.photoThumbnail}'/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -38,9 +47,10 @@
                     android:fontFamily="@font/inter_bold"
                     android:maxLines="1"
                     android:minLines="1"
-                    android:textColor="@color/primer_third"
+                    android:textColor="@color/white"
                     android:textSize="16sp"
-                    tools:text="Matematika XII MM-2"/>
+                    android:text='@{data.name}'
+                    tools:text="Matematika XII MM-2" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -52,22 +62,24 @@
                     android:fontFamily="@font/inter_regular"
                     android:maxLines="1"
                     android:minLines="1"
-                    android:textColor="@color/primer_third"
+                    android:textColor="@color/white"
                     android:textSize="14sp"
+                    android:text='@{data.namaSekolah}'
                     tools:text="SMKN 11 Semarang" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
                     android:layout_gravity="bottom"
-                    android:layout_marginBottom="24dp"
+                    android:layout_marginStart="24dp"
                     android:layout_marginEnd="42dp"
+                    android:layout_marginBottom="24dp"
                     android:ellipsize="end"
                     android:fontFamily="@font/inter_regular"
                     android:maxLines="1"
                     android:minLines="1"
-                    android:textColor="@color/primer_third"
+                    android:text='@{data.teacherName}'
+                    android:textColor="@color/white"
                     android:textSize="12sp"
                     tools:text="Mg.Eko Sri Winaryanti" />
 

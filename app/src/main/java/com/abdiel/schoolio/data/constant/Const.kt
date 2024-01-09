@@ -18,4 +18,13 @@ object Const {
     object TIMEOUT {
         const val NINETY_LONG = 90L
     }
+
+    object RELOAD {
+        const val RELOAD = 29
+    }
+
+    object LIST {
+        const val LIST_SUBJECT = "list_subject"
+        const val LIST_ID = "id"
+    }
 }

@@ -23,10 +23,10 @@ class LoginViewModel @Inject constructor(
     private val session: Session
 ) : BaseViewModel() {
 
-    fun login(email_or_phone: String, password: String) = viewModelScope.launch {
+    fun login(email_or_phone: String, password: String, device_token: String) = viewModelScope.launch {
         _apiResponse.emit(ApiResponse().responseLoading())
         ApiObserver(
-            { apiService.login( email_or_phone, password) }, false, object : ApiObserver.ResponseListener {
+            { apiService.login( email_or_phone, password, device_token) }, false, object : ApiObserver.ResponseListener {
                 override suspend fun onSuccess(response: JSONObject) {
                     val data = response.getJSONObject(ApiCode.DATA).toObject<User>(gson)
                     val token = response.getJSONObject(ApiCode.DATA).getJSONObject("token").getString("access_token")
