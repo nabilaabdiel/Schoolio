@@ -3,6 +3,7 @@ package com.abdiel.schoolio.ui.assignment
 import androidx.lifecycle.viewModelScope
 import com.abdiel.schoolio.api.ApiService
 import com.abdiel.schoolio.base.viewModel.BaseViewModel
+import com.abdiel.schoolio.data.assignment.ByIdMapel
 import com.abdiel.schoolio.data.mapel.Assignment
 import com.abdiel.schoolio.data.mapel.Mapel
 import com.abdiel.schoolio.data.session.Session
@@ -22,18 +23,18 @@ import javax.inject.Inject
 @HiltViewModel
 class AssignmentViewModel @Inject constructor(
     private val apiService: ApiService,
-    private val gson: Gson,
-    private val session: Session
+    private val gson: Gson
 ) : BaseViewModel() {
 
-    private val _byIdSubject = MutableSharedFlow<List<Assignment>>()
+    private val _byIdSubject = MutableSharedFlow<ByIdMapel>()
     val byIdSubject = _byIdSubject.asSharedFlow()
 
     fun byId(id : String) = viewModelScope.launch {
         ApiObserver(
             { apiService.byIdSubject(id) }, false, object : ApiObserver.ResponseListener {
                 override suspend fun onSuccess(response: JSONObject) {
-                    val data = response.getJSONObject(ApiCode.DATA).getJSONArray("assignment").toList<Assignment>(gson)
+//                    val data = response.getJSONObject(ApiCode.DATA).getJSONArray("assignment").toList<Assignment>(gson)
+                    val data = response.getJSONObject(ApiCode.DATA).toObject<ByIdMapel>(gson)
                     _byIdSubject.emit(data)
                 }
 

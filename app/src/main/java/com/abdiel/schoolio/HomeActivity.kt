@@ -9,6 +9,7 @@ import android.widget.ImageButton
 import android.widget.ImageView
 import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
+import androidx.core.view.isVisible
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -58,6 +59,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(R.layout.a
 
         viewModel.listSubject()
         observe()
+        initSwipe()
 
         drawerLayout = binding.drawerLayout
         navView = binding.navMenu
@@ -186,6 +188,8 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(R.layout.a
                         listSubjects.addAll(subject)
                         subjectList.addAll(subject)
                         adapter.notifyItemInserted(0)
+                        binding.tvEmpty.isVisible = subject.isEmpty()
+                        binding.swipeRefresh.isRefreshing = false
                     }
                 }
 
@@ -208,6 +212,12 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(R.layout.a
                 }
             }
         }
+    }
 
+    private fun initSwipe() {
+        binding.swipeRefresh.setProgressViewOffset(false, 0, 280)
+        binding.swipeRefresh.setOnRefreshListener {
+            viewModel.listSubject()
+        }
     }
 }

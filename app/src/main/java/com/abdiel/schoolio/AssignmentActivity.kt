@@ -3,21 +3,26 @@ package com.abdiel.schoolio
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
+import androidx.core.view.isVisible
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.abdiel.schoolio.base.activity.BaseActivity
 import com.abdiel.schoolio.data.constant.Const
 import com.abdiel.schoolio.data.mapel.Assignment
+import com.abdiel.schoolio.data.mapel.Mapel
 import com.abdiel.schoolio.databinding.ActivityAssignmentBinding
 import com.abdiel.schoolio.databinding.ListAssignmentBinding
 import com.abdiel.schoolio.ui.assignment.AssignmentViewModel
 import com.crocodic.core.base.adapter.CoreListAdapter
 import com.crocodic.core.extension.createIntent
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class AssignmentActivity : BaseActivity<ActivityAssignmentBinding, AssignmentViewModel>(R.layout.activity_assignment) {
 
+    private var assignment: Mapel? = null
     private var listAssignment = ArrayList<Assignment?>()
     private var listAllAssignment = ArrayList<Assignment?>()
 
@@ -36,13 +41,13 @@ class AssignmentActivity : BaseActivity<ActivityAssignmentBinding, AssignmentVie
 
         binding.rvHome.adapter = adapter
 
-        val data = intent.getStringExtra(Const.LIST.LIST_ID)
-        if (data != null) {
-            Log.d("cek id",data)
-            viewModel.byId(data)
+        assignment = intent.getParcelableExtra(Const.LIST.LIST_SUBJECT)
+        if (assignment != null) {
+            Log.d("cek id", assignment?.id ?: "")
+            viewModel.byId(assignment?.id ?: return)
         }
-        observe()
 
+        observe()
     }
 
     @SuppressLint("NotifyDataSetChanged")
@@ -51,15 +56,25 @@ class AssignmentActivity : BaseActivity<ActivityAssignmentBinding, AssignmentVie
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 launch {
                     viewModel.byIdSubject.collect { subject ->
+                        binding.data = subject
                         listAssignment.clear()
                         listAllAssignment.clear()
                         adapter.notifyDataSetChanged()
-                        listAssignment.addAll(subject)
-                        listAllAssignment.addAll(subject)
+                        listAssignment.addAll(subject.assignment ?: emptyList())
+                        listAllAssignment.addAll(subject.assignment ?: emptyList())
                         adapter.notifyItemInserted(0)
+                        binding.tvEmpty.isVisible = subject.assignment?.isEmpty() == true
+                        binding.swipeRefresh.isRefreshing = false
                     }
                 }
             }
         }
     }
+
+//    private fun initSwipe() {
+//        binding.swipeRefresh.setProgressViewOffset(false, 0, 280)
+//        binding.swipeRefresh.setOnRefreshListener {
+//            viewModel.byId()
+//        }
+//    }
 }

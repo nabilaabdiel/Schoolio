@@ -4,7 +4,7 @@
     <data>
         <variable
             name="data"
-            type="com.abdiel.schoolio.data.mapel.Mapel" />
+            type="com.abdiel.schoolio.data.assignment.ByIdMapel" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"

@@ -62,7 +62,7 @@ interface ApiService {
     ): String
 
     //By-Id Mapel
-    @GET("mapel/{Id}")
+    @GET("api/mapel/{id}")
     suspend fun byIdSubject(
         @Path("id") id: String?,
     ): String

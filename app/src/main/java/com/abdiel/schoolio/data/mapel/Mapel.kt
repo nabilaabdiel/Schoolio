@@ -32,7 +32,5 @@ data class Mapel(
     @SerializedName("updated_at")
     val updatedAt: String?,
     @SerializedName("updated_at_formatted")
-    val updatedAtFormatted: String?,
-    @SerializedName("assignment")
-    val assignment: List<Assignment?>?
+    val updatedAtFormatted: String?
 ): Parcelable
