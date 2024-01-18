@@ -1,4 +1,4 @@
-package com.abdiel.schoolio
+package com.abdiel.schoolio.ui.assignment
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -7,13 +7,14 @@ import androidx.core.view.isVisible
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import com.abdiel.schoolio.ui.detailAssightment.DetailAssignmentActivity
+import com.abdiel.schoolio.R
 import com.abdiel.schoolio.base.activity.BaseActivity
 import com.abdiel.schoolio.data.constant.Const
 import com.abdiel.schoolio.data.mapel.Assignment
 import com.abdiel.schoolio.data.mapel.Mapel
 import com.abdiel.schoolio.databinding.ActivityAssignmentBinding
 import com.abdiel.schoolio.databinding.ListAssignmentBinding
-import com.abdiel.schoolio.ui.assignment.AssignmentViewModel
 import com.crocodic.core.base.adapter.CoreListAdapter
 import com.crocodic.core.extension.createIntent
 import dagger.hilt.android.AndroidEntryPoint
@@ -32,6 +33,7 @@ class AssignmentActivity : BaseActivity<ActivityAssignmentBinding, AssignmentVie
             .initItem(listAssignment) { _, data ->
                 activityLauncher.launch(createIntent<DetailAssignmentActivity> {
                     putExtra(Const.LIST.LIST_SUBJECT, data)
+                    putExtra(Const.LIST.ASSIGNMENT_ID,data?.id)
                 })
             }
     }

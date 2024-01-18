@@ -5,11 +5,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
-import android.widget.ImageButton
 import android.widget.ImageView
 import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
 import androidx.core.view.isVisible
+import androidx.core.widget.doOnTextChanged
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -20,6 +20,7 @@ import com.abdiel.schoolio.data.mapel.Mapel
 import com.abdiel.schoolio.databinding.ActivityHomeBinding
 import com.abdiel.schoolio.databinding.ListMapelBinding
 import com.abdiel.schoolio.ui.HomeViewModel
+import com.abdiel.schoolio.ui.assignment.AssignmentActivity
 import com.abdiel.schoolio.ui.profile.ProfileActivity
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -28,7 +29,6 @@ import com.crocodic.core.base.adapter.CoreListAdapter
 import com.crocodic.core.extension.createIntent
 import com.crocodic.core.extension.openActivity
 import com.crocodic.core.extension.tos
-import com.crocodic.core.helper.ImagePreviewHelper
 import com.google.android.material.navigation.NavigationView
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -60,6 +60,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(R.layout.a
         viewModel.listSubject()
         observe()
         initSwipe()
+        search()
 
         drawerLayout = binding.drawerLayout
         navView = binding.navMenu
@@ -81,7 +82,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(R.layout.a
             val headersView = inflater.inflate(R.layout.header, navView, false)
             navView.addHeaderView(headersView)
 
-        }else{
+        } else {
             navView.removeHeaderView(navView.getHeaderView(0))
             navView.addHeaderView(headerView)
         }
@@ -213,6 +214,35 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(R.layout.a
             }
         }
     }
+
+    private fun search() {
+        binding.svHome.doOnTextChanged { text, _, _, _ ->
+            if (text!!.isNotEmpty()) {
+                val filter = listSubjects.filter {
+                    it?.name?.contains(
+                        "$text",
+                        true
+                    ) == true
+                }
+
+                listSubjects.clear()
+                adapter.notifyDataSetChanged()
+                listSubjects.addAll(filter)
+                adapter.notifyItemInserted(0)
+                binding.tvEmpty.isVisible = filter.isEmpty()
+                binding.swipeRefresh.isRefreshing = false
+
+            } else {
+                listSubjects.clear()
+                adapter.notifyDataSetChanged()
+                listSubjects.addAll(subjectList)
+                adapter.notifyItemInserted(0)
+                binding.swipeRefresh.isRefreshing = false
+
+            }
+        }
+    }
+
 
     private fun initSwipe() {
         binding.swipeRefresh.setProgressViewOffset(false, 0, 280)

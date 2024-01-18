@@ -66,4 +66,10 @@ interface ApiService {
     suspend fun byIdSubject(
         @Path("id") id: String?,
     ): String
+
+    //By-Id Assignment
+    @GET("api/assignment/{id}")
+    suspend fun byIdAssignment(
+        @Path("id") id: String?,
+    ): String
 }

@@ -9,7 +9,7 @@ import android.content.Intent
 import android.os.Build
 import android.util.Log
 import androidx.core.app.NotificationCompat
-import com.abdiel.schoolio.DetailAssignmentActivity
+import com.abdiel.schoolio.ui.detailAssightment.DetailAssignmentActivity
 import com.abdiel.schoolio.HomeActivity
 import com.crocodic.core.helper.DateTimeHelper
 import com.google.firebase.messaging.FirebaseMessagingService

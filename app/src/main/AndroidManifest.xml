@@ -39,14 +39,14 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".AssignmentActivity"
+            android:name=".ui.assignment.AssignmentActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".DetailAssignmentActivity"
+            android:name=".ui.detailAssightment.DetailAssignmentActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

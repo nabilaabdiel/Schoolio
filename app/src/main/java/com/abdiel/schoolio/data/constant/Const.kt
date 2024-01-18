@@ -25,6 +25,7 @@ object Const {
 
     object LIST {
         const val LIST_SUBJECT = "list_subject"
+        const val ASSIGNMENT_ID = "id"
         const val LIST_ID = "id"
     }
 }

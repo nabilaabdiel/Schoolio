@@ -88,6 +88,7 @@
                     android:drawableEnd="@drawable/ic_round_search_24"
                     android:fontFamily="@font/inter_regular"
                     android:hint="@string/search"
+                    android:inputType="text"
                     android:iconifiedByDefault="false"
                     android:paddingHorizontal="32dp"
                     android:paddingVertical="14dp"
